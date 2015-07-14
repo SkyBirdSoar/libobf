@@ -48,8 +48,7 @@ def Obfuscate.encode _
   _=Obfuscate[?.][_,_m[0]]
   a =->_{Obfuscate[?.][_,_m[1],%r{(.)\1{0,}}]}
   b =->_{Obfuscate[?.][_,_m[2]]? []:(_=a[_];Obfuscate[?.][b[_[Obfuscate[?-]+Obfuscate[?-]]],_m[3],_[Obfuscate[?-]]])}
-  c =->_{_=~%r'$'}
-  Obfuscate[?+][b[_],[_m[4], ->_{[_[Obfuscate[?_]],Obfuscate[?.<<?.][c,_]]}]]
+  Obfuscate[?+][b[_],[_m[4], ->_{[_[Obfuscate[?_]],Obfuscate[?.<<?.][Obfuscate[?s>>??],_]]}]]
 end
 
 def Obfuscate.decode _
