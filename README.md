@@ -24,3 +24,52 @@ $-o[?.][_,:reduce,$-o[?s],->_,__{_+(__[$-o[?_]]*__[$-o[?-]])}]
 ```
 
 More examples are available in `examples/`
+
+Tips and Tricks
+---
+
+## 1. Even and Odd
+
+```ruby
+number&1
+```
+
+If `number&1` is 0, it is even
+If it is 1, it is odd.
+
+It can be used like this:
+
+```ruby
+number&1<1?even:odd
+```
+
+## 2. Calling `$-o`
+For 2 characters+ keys, there are different ways to call them.
+
+```ruby
+$-o[?.<<?.]
+$-o['..']
+$-o[%[..]] # and other %sym
+$-o[%q[..]]
+$-o[$-o[?s]+'..']
+# etc
+```
+
+## 3. Obfuscating method calls
+_libobf_ provides methods for you to obfuscate your method names!
+Just fire up IRB and obfuscate your methods names!
+
+```ruby
+irb> require 'libobf'
+  => true
+irb> $-o[?[]["map"]
+  => (obfuscated)
+```
+Copy and paste them into source and you are ready to go!
+
+```ruby
+m = [(obfuscated), (obfuscated), (obfuscated)]
+Object.send($-o[?:][m[0]])
+```
+
+If you are lazy, you can also just `map(&:$-o[?:])` over `m`
