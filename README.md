@@ -73,3 +73,11 @@ Object.send($-o[?:][m[0]])
 ```
 
 If you are lazy, you can also just `map(&:$-o[?:])` over `m`
+
+## 4. More method calling obfuscation
+Ruby allows us to call `[]` using the ol' way, so let's do it!
+
+```ruby
+$-o.[](?+).[](Kernel, [:puts, "hello"])
+```
+
